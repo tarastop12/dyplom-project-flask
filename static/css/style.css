@@ -1,11 +1,10 @@
-/* Сброс стандартных отступов */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Основные стили */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -13,28 +12,28 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Размещение содержимого вверху */
+    justify-content: flex-start; 
     align-items: center;
     min-height: 100vh;
     padding: 20px;
 }
 
-/* Стили для шапки сайта */
+
 header {
-    background-color: #4CAF50; /* Зеленый цвет для шапки */
+    background-color: #4CAF50;
     padding: 20px 0;
     text-align: center;
     width: 100%;
 }
 
-/* Стили для заголовка в шапке */
+
 header h1 {
     font-size: 36px;
     color: white;
     margin-bottom: 20px;
 }
 
-/* Стили для навигации */
+
 nav {
     display: flex;
     justify-content: center;
@@ -57,10 +56,10 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* Стили для главного контента */
+
 .hero {
     text-align: center;
-    margin-top: 50px; /* Отступ от шапки */
+    margin-top: 50px;
 }
 
 .hero h2 {
@@ -102,12 +101,12 @@ nav a:hover {
     bottom: 0;
 }
 
-/* Стили для кнопки "Наши услуги", чтобы она не выходила за пределы */
+
 #services-btn {
-    pointer-events: none; /* Отключаем кликабельность для демонстрации */
+    pointer-events: none; 
 }
 
-/* Стили для контейнера формы */
+
 .form-container {
     width: 100%;
     max-width: 400px;
@@ -121,7 +120,7 @@ nav a:hover {
     gap: 20px;
 }
 
-/* Заголовок формы */
+
 .form-container h2 {
     text-align: center;
     color: #333;
@@ -129,7 +128,7 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-/* Стили для полей ввода */
+
 input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
     padding: 15px;
     margin-bottom: 15px;
@@ -142,12 +141,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     transition: border-color 0.3s;
 }
 
-/* Эффект при фокусе на полях ввода */
+
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
     border-color: #4CAF50;
 }
 
-/* Кнопки для формы */
+
 button[type="submit"] {
     padding: 15px;
     background-color: #4CAF50;
@@ -160,13 +159,13 @@ button[type="submit"] {
     width: 100%;
 }
 
-/* Эффект при наведении на кнопку */
+
 button[type="submit"]:hover {
     background-color: #45a049;
     transform: scale(1.05);
 }
 
-/* Ссылки для Входа и Регистрации */
+
 .auth-link {
     text-align: center;
     font-size: 16px;
@@ -182,51 +181,50 @@ button[type="submit"]:hover {
     color: #0056b3;
 }
 
-/* Контакты в правом нижнем углу */
-/* Контейнер для кнопки "Контакты" */
+
 .contacts {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000; /* Убедитесь, что кнопка находится поверх остальных элементов */
+    z-index: 1000; //
 }
 
-/* Ссылки внутри контейнера */
+
 .contacts a {
-    background-color: #007bff; /* Цвет фона кнопки */
-    color: white; /* Белый цвет текста */
+    background-color: #007bff; 
+    color: white; 
     font-size: 18px;
-    padding: 12px 24px; /* Размеры кнопки */
-    border-radius: 8px; /* Скругленные углы */
+    padding: 12px 24px; 
+    border-radius: 8px; 
     text-decoration: none;
     display: inline-block;
-    transition: background-color 0.3s, transform 0.3s; /* Плавные эффекты */
+    transition: background-color 0.3s, transform 0.3s; 
 }
 
-/* Эффект при наведении */
+
 .contacts a:hover {
-    background-color: #0056b3; /* Темнее синий при наведении */
-    transform: scale(1.05); /* Легкое увеличение кнопки */
+    background-color: #0056b3; 
+    transform: scale(1.05); 
 }
 
-/* Эффект при клике */
+
 .contacts a:active {
-    background-color: #004085; /* Тёмно-синий цвет при нажатии */
+    background-color: #004085; 
 }
 
 
-/* Стили для разделов */
+
 section {
     width: 100%;
     max-width: 1200px;
-    margin: 50px auto; /* Отступ сверху и по бокам */
+    margin: 50px auto; 
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
-/* Стили для заголовков разделов */
+
 section h2 {
     font-size: 28px;
     color: #333;
@@ -234,7 +232,7 @@ section h2 {
     text-align: center;
 }
 
-/* Стили для параграфов внутри разделов */
+
 section p {
     font-size: 18px;
     color: #666;
@@ -242,7 +240,7 @@ section p {
     text-align: justify;
 }
 
-/* Стили для списка внутри разделов */
+
 section ul {
     list-style-type: disc;
     padding-left: 20px;
@@ -255,7 +253,7 @@ section ul li {
     margin-bottom: 10px;
 }
 
-/* Стили для изображений в разделах */
+
 section img {
     max-width: 100%;
     height: auto;
@@ -263,7 +261,7 @@ section img {
     margin-top: 20px;
 }
 
-/* Стили для раздела с кнопкой CTA (например, кнопка в конце раздела) */
+
 section .cta-btn {
     display: inline-block;
     padding: 15px 25px;
@@ -281,7 +279,7 @@ section .cta-btn:hover {
     transform: scale(1.05);
 }
 
-/* Стили для последнего раздела (например, для футера) */
+
 footer {
     background-color: #4CAF50;
     color: white;
