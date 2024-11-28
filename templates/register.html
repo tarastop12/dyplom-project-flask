@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Компания Ромашка</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Главная</a>
+            <a href="{{ url_for('about') }}">О компании</a>
+            <a href="{{ url_for('services') }}">Услуги</a>
+            <a href="{{ url_for('contact') }}">Контакты</a>
+            <a href="{{ url_for('login') }}">Вход</a>
+        </nav>
+    </header>
+    <div class="content">
+        <h2>Регистрация</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            {{ form.hidden_tag() }} 
+            
+            <label for="username">Имя пользователя:</label>
+            {{ form.username() }}
+            
+            <label for="email">Электронная почта:</label>
+            {{ form.email() }}
+            
+            <label for="password">Пароль:</label>
+            {{ form.password() }}
+            
+            <label for="confirm_password">Повторите пароль:</label>
+            {{ form.confirm_password() }}
+            
+            <button type="submit">Зарегистрироваться</button>
+        </form>        
+    </div>    
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="flash-{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

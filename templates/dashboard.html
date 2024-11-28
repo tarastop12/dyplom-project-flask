@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель пользователя</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/panel_styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Добро пожаловать в панель пользователя</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Главная</a>
+                <a href="{{ url_for('services') }}">Услуги</a>
+                <a href="{{ url_for('about') }}">О компании</a>
+                <a href="{{ url_for('contact') }}">Контакты</a>
+                <a href="{{ url_for('logout') }}">Выйти</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="flash-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <div class="container">
+            <h2>Панель управления</h2>
+
+            <div class="user-info">
+                <h3>Ваши данные</h3>
+                <p><strong>Имя пользователя:</strong> {{ current_user.username }}</p>
+                <p><strong>Email:</strong> {{ current_user.email }}</p>
+            </div>
+
+            <div class="user-orders">
+                <h3>Ваши заказы</h3>
+                {% if orders %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Тип услуги</th>
+                                <th>Статус</th>
+                                <th>Дата создания</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.service_type }}</td>
+                                    <td>{{ order.status }}</td>
+                                    <td>{{ order.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>У вас пока нет заказов.</p>
+                {% endif %}
+            </div>
+
+            <div class="new-order">
+                <h3>Создать новый заказ</h3>
+                <a class="button" href="{{ url_for('create_order') }}">Перейти к заказам</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ваша Компания. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

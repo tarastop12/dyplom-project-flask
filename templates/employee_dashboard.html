@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель сотрудников</title>
+    <!-- Подключение внешнего CSS файла -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body>
+    <div class="panel">
+        <h1>Добро пожаловать в панель сотрудника</h1>
+
+        <!-- Форма для SQL запроса -->
+        <form method="POST" action="{{ url_for('execute_sql') }}">
+            <label for="sql_query">Введите SQL запрос:</label>
+            <textarea id="sql_query" name="sql_query" rows="4" placeholder="Введите ваш запрос"></textarea>
+
+            <button type="submit">Выполнить запрос</button>
+        </form>
+
+        <!-- Сообщения об успехе или ошибке -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash {{ messages[0][0] }}">
+                {{ messages[0][1] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Вывод результатов запроса -->
+        {% if result %}
+            <h2>Результаты запроса:</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <!-- Выводим заголовки колонок -->
+                        {% for column in result[0].keys() %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Выводим строки таблицы -->
+                    {% for row in result %}
+                        <tr>
+                            {% for column in result[0].keys() %}
+                                <td>{{ row[column] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Нет данных для отображения</p>
+        {% endif %}
+
+        <!-- Новые кнопки -->
+        <div class="button-group">
+            <form action="{{ url_for('show_orders') }}" method="GET">
+                <button type="submit" class="btn">Показать все заказы</button>
+            </form>
+            <form action="{{ url_for('home') }}" method="GET">
+                <button type="submit" class="btn btn-logout">Выйти</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Компания Ромашка</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Главная</a>
+            <a href="{{ url_for('about') }}">О компании</a>
+            <a href="{{ url_for('services') }}">Услуги</a>
+            <a href="{{ url_for('contact') }}">Контакты</a>
+            <a href="{{ url_for('register') }}">Регистрация</a>
+        </nav>
+    </header>
+    
+    <div class="content">
+        <h2>Вход</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                {{ form.email(class="form-control", placeholder="Введите ваш email") }}
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                {{ form.password(class="form-control", placeholder="Введите ваш пароль") }}
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
