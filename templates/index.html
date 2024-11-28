@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!-- Шапка с названием компании и навигацией -->
+ 
     <header>
         <h1>Компания Ромашка</h1>
         <nav>
@@ -23,7 +23,6 @@
         </nav>
     </header>
 
-    <!-- Основной контент -->
     <main>
         <section class="hero">
             <h2>Добро пожаловать на сайт компании Ромашка!</h2>
@@ -31,13 +30,11 @@
             <a href="{{ url_for('services') }}" class="cta-btn">Наши услуги</a>
         </section>
     </main>
-
-    <!-- Футер с копирайтом -->
+    
     <footer class="footer">
         <p>&copy; 2024 Компания Ромашка. Все права защищены.</p>
     </footer>
 
-    <!-- Контакты в правом нижнем углу -->
     <div class="contacts">
         <a href="{{ url_for('contact') }}">Контакты</a>
     </div>
