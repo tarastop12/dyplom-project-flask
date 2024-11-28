@@ -40,10 +40,9 @@
             <textarea id="description" name="description" rows="4" placeholder="Введите описание заказа" required></textarea>
 
             <div class="buttons">
-                <!-- Кнопка отправки формы -->
+                <!--  форма создает заказ в табличке -->
                 <button type="submit" class="btn-submit">Создать заказ</button>
 
-                <!-- Кнопка отмены -->
                 <button type="button" class="btn-cancel" onclick="window.location.href='{{ url_for('dashboard')}}';">Отмена</button>
             </div>
         </form>
