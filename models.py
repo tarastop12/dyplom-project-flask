@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
     
 
-# Модель заказа
+
 class Order(db.Model):
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
