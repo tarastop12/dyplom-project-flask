@@ -213,20 +213,15 @@ def execute_sql():
         flash('Доступ запрещён', 'danger')
         return redirect(url_for('login'))
 
-    sql_query = request.form.get('sql_query')  # Получаем SQL запрос из формы
-    result = None  # Инициализируем переменную для результата
-
+    sql_query = request.form.get('sql_query')  # 
+    result = None  
     try:
-        # Выполняем SQL запрос
         cursor_result = db.session.execute(text(sql_query))
 
-        # Если результат содержит строки, получаем данные через fetchall
         if cursor_result.returns_rows:
-            rows = cursor_result.fetchall()  # Извлекаем все строки
-            # Получаем имена колонок из описания результата
+            rows = cursor_result.fetchall()  # все строки из щрдерс к примеру?На колумс ругался
             columns = cursor_result.keys()
 
-            # Преобразуем результат в список словарей, где ключи - это имена колонок
             result = [dict(zip(columns, row)) for row in rows]
 
         db.session.commit()
