@@ -1,4 +1,4 @@
-/* Стиль для панели управления заказами */
+
 .content {
     width: 100%;
     max-width: 600px;
@@ -67,7 +67,7 @@
     display: none;
 }
 
-/* Стиль для всей панели управления */
+
 .panel-control {
     background-color: #f8f9fa;
     border: 1px solid #ddd;
@@ -75,14 +75,14 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Стиль для заголовков */
+
 .panel-control h2 {
     color: #343a40;
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-/* Стиль для кнопок */
+
 .panel-control button {
     background-color: #007bff;
     color: white;
@@ -97,7 +97,7 @@
     background-color: #0056b3;
 }
 
-/* Пример для таблицы */
+
 .panel-control table {
     width: 100%;
     border-collapse: collapse;
