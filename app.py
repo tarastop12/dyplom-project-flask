@@ -9,8 +9,9 @@ from sqlalchemy import text
 
 app = Flask(__name__)
 
+
 app.config['SECRET_KEY'] = 'e8b2fc3ae7e14b1b9e0f2c5a0c9f8f7d'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/Humans'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///humans.db'  
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -155,7 +156,7 @@ def cancel_order(order_id):
         flash('Ошибка при удалении заказа', 'danger')
     return redirect(url_for('dashboard'))
 
-#2 метода(если данные не верны он не ретернит)
+
 @app.route('/employee_login', methods=['GET', 'POST'])
 def employee_login():
     form = LoginForm()
@@ -206,6 +207,7 @@ def show_orders():
     orders = Order.query.all()
     return render_template('show_orders.html', orders=orders)
 
+
 @app.route('/execute_sql', methods=['POST'])
 @login_required
 def execute_sql():
@@ -213,13 +215,13 @@ def execute_sql():
         flash('Доступ запрещён', 'danger')
         return redirect(url_for('login'))
 
-    sql_query = request.form.get('sql_query')  # 
+    sql_query = request.form.get('sql_query')
     result = None  
     try:
-        cursor_result = db.session.execute(text(sql_query))
+        cursor_result = db.session.execute(sql_query)  # Простой SQL запрос
 
         if cursor_result.returns_rows:
-            rows = cursor_result.fetchall()  # все строки из щрдерс к примеру?На колумс ругался
+            rows = cursor_result.fetchall()
             columns = cursor_result.keys()
 
             result = [dict(zip(columns, row)) for row in rows]
@@ -230,7 +232,6 @@ def execute_sql():
         flash(f'Ошибка при выполнении запроса: {e}', 'danger')
 
     return render_template('employee_dashboard.html', result=result)
-
 
 
 if __name__ == '__main__':
